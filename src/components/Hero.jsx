@@ -6,11 +6,6 @@ export default function Hero({ pagina }) {
   return (
     <div className="hero">
       <div className="marca">
-        <div className="marca-simbolo">M</div>
-        <div>
-          <div className="marca-nome">OBSERVA<br />MARICÁ</div>
-          <div className="marca-sub">Observatório Municipal</div>
-        </div>
       </div>
       <div>
         <h1>{subtitulo}</h1>

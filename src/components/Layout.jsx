@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import logoMare from '../assets/logo_mare.png'
 
 export const SECOES = {
   panorama:         ['Panorama', 'Observatório Municipal de Cultura e Turismo', 'Informação integrada para políticas públicas', 'Maricá · RJ', 'Atualização de 20/11/2026'],
@@ -35,7 +36,10 @@ export default function Layout() {
       <a href="#main" className="pular">Pular para o conteúdo</a>
       <header className="site-nav">
         <div className="nav-inner">
-          <NavLink to="/panorama" className="nome-site">Observa Maricá</NavLink>
+          <NavLink to="/panorama" className="nome-site">
+            <img src={logoMare} alt="Logo MARÉ" className="nav-logo" />
+            Observa Maricá
+          </NavLink>
             <nav className="nav-links" aria-label="Seções do observatório">
             <NavItem to="/panorama" label={SECOES.panorama[0]} />
             <NavItem to="/turismo" label={SECOES.turismo[0]} />
