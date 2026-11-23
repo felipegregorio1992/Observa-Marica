@@ -1,0 +1,89 @@
+﻿arquivo,campo,definicao,tipo,classificacao,regra_de_uso
+indicadores_oficiais.csv,indicador,Nome do indicador territorial,texto,OFICIAL,Manter a denominação da fonte
+indicadores_oficiais.csv,valor,Valor observado ou categoria informada,texto/número,OFICIAL,Interpretar com unidade e ano de referência
+indicadores_oficiais.csv,unidade,Unidade de medida do valor,texto,OFICIAL,Pode não se aplicar a indicadores categóricos
+indicadores_oficiais.csv,ano_referencia,Ano ou data de referência do indicador,texto,OFICIAL,Não confundir com a data de acesso
+indicadores_oficiais.csv,tipo_dado,Classificação de proveniência do dado,texto,DERIVADO,Usar os valores padronizados da classificação
+indicadores_oficiais.csv,fonte,Instituição e produto de origem,texto,OFICIAL,Manter a referência verificável
+indicadores_oficiais.csv,url,Endereço eletrônico da fonte,texto,OFICIAL,Revisar periodicamente a disponibilidade
+indicadores_oficiais.csv,observacao,Nota de interpretação e limitação,texto,DERIVADO,Exibir quando necessária à leitura responsável
+linha_base_demografica.csv,ano,Ano de referência da população,inteiro,OFICIAL,Não interpolar anos ausentes sem método
+linha_base_demografica.csv,populacao,População residente ou estimada,inteiro,OFICIAL,Distinguir censo de estimativa
+linha_base_demografica.csv,tipo,Tipo da medida populacional,texto,DERIVADO,Preservar a compatibilização territorial de 2010
+linha_base_demografica.csv,fonte,Origem do valor populacional,texto,OFICIAL,Manter a identificação do produto do IBGE
+eventos_oficiais_2026.csv,registro_id,Chave técnica sequencial do registro,inteiro,DERIVADO,Não substituir pelo número oficial
+eventos_oficiais_2026.csv,numero_oficial,Número conforme o calendário publicado,texto,OFICIAL,Preservar inclusive repetições da publicação
+eventos_oficiais_2026.csv,ano,Ano do calendário,inteiro,OFICIAL,Usar junto ao número oficial
+eventos_oficiais_2026.csv,mes_num,Número do mês de referência,inteiro,DERIVADO,Valor de 1 a 12
+eventos_oficiais_2026.csv,mes_nome,Nome do mês de referência,texto,DERIVADO,Ordenar por mes_num
+eventos_oficiais_2026.csv,tema_mes,Tema mensal publicado no calendário,texto,OFICIAL,Preservar a redação da fonte
+eventos_oficiais_2026.csv,evento,Nome publicado do evento,texto,OFICIAL,Não abreviar sem manter o original
+eventos_oficiais_2026.csv,datas,Data ou período informado no calendário,texto,OFICIAL,Manter expressões como Em aberto e Mês todo
+eventos_oficiais_2026.csv,secretaria_responsavel,Órgão ou parceria responsável conforme publicação,texto,OFICIAL,Preservar integralmente a redação da fonte
+eventos_oficiais_2026.csv,participacao_mare,Classificação da presença da MARÉ no campo responsável,texto,DERIVADO,Usar para filtro e consultar o campo oficial na interpretação
+eventos_oficiais_2026.csv,situacao_data,Classificação da definição da data,texto,DERIVADO,Não converter previsão em data confirmada
+eventos_oficiais_2026.csv,categoria_responsavel,Agrupamento analítico da área responsável,texto,DERIVADO,Não substituir a secretaria publicada
+eventos_oficiais_2026.csv,tipo_dado,Classificação de proveniência do registro,texto,DERIVADO,Manter como oficial para dados transcritos
+eventos_oficiais_2026.csv,pagina_fonte,Página do documento de origem,inteiro,OFICIAL,Usar para rastreabilidade
+eventos_oficiais_2026.csv,fonte,Referência completa do calendário,texto,OFICIAL,Manter edição data e páginas
+equipamentos_oficiais.csv,nome,Nome institucional do equipamento,texto,OFICIAL,Manter conforme a fonte institucional
+equipamentos_oficiais.csv,endereco,Endereço informado para o equipamento,texto,OFICIAL,Não preencher lacunas sem validação
+equipamentos_oficiais.csv,status,Situação informada do equipamento,texto,OFICIAL,Atualizar somente com nova fonte formal
+equipamentos_oficiais.csv,previsao,Previsão de abertura entrega ou transferência,texto,OFICIAL,Não interpretar como data definitiva
+equipamentos_oficiais.csv,territorio,Bairro ou território informado,texto,OFICIAL,Geocodificar apenas após validação
+equipamentos_oficiais.csv,categoria,Categoria funcional do equipamento,texto,DERIVADO,Validar posteriormente em taxonomia institucional
+equipamentos_oficiais.csv,tipo_dado,Classificação de proveniência do registro,texto,DERIVADO,Manter como oficial para dados transcritos
+equipamentos_oficiais.csv,fonte,Documento institucional de origem,texto,OFICIAL,Registrar a data da atualização
+matriz_indicadores_tcc.csv,dimensao,Dimensão analítica do observatório,texto,DERIVADO,Usar uma das cinco dimensões do TCC
+matriz_indicadores_tcc.csv,indicador,Nome do indicador proposto,texto,DERIVADO,Manter alinhado ao Quadro 2 do TCC
+matriz_indicadores_tcc.csv,definicao_formula,Definição conceitual ou fórmula do indicador,texto,DERIVADO,Detalhar em ficha técnica antes da produção
+matriz_indicadores_tcc.csv,fonte_principal,Fonte prevista para o indicador,texto,DERIVADO,Validar disponibilidade e responsabilidade
+matriz_indicadores_tcc.csv,periodicidade,Frequência planejada de atualização,texto,DERIVADO,Formalizar em nível de serviço
+matriz_indicadores_tcc.csv,disponibilidade,Estágio atual de maturidade do indicador,texto,DERIVADO,Usar Disponível Parcial ou A produzir
+matriz_indicadores_tcc.csv,nota_metodologica,Limitação ou condição para produção,texto,DERIVADO,Exibir junto ao indicador quando aplicável
+noticias_instagram_mare.csv,id_publicacao,Chave técnica sequencial da publicação,inteiro,DERIVADO,Não usar como identificador da plataforma
+noticias_instagram_mare.csv,data,Data da publicação,data,OFICIAL,Formato ISO AAAA-MM-DD
+noticias_instagram_mare.csv,dia_semana,Dia da semana da publicação,texto,DERIVADO,Derivado da data
+noticias_instagram_mare.csv,tipo,Formato da publicação,texto,OFICIAL,Padronizar como Reel Carrossel ou Imagem
+noticias_instagram_mare.csv,titulo,Título sintético obtido da legenda,texto,DERIVADO,Não apresentar como título oficial quando inexistente
+noticias_instagram_mare.csv,resumo,Síntese da legenda para consulta,texto,DERIVADO,Preservar a base de origem para auditoria
+noticias_instagram_mare.csv,tema,Classificação temática para navegação,texto,DERIVADO,Não substituir taxonomia institucional validada
+noticias_instagram_mare.csv,curtidas,Quantidade registrada de curtidas,inteiro,OFICIAL,Tratar como fotografia no momento da coleta
+noticias_instagram_mare.csv,comentarios,Quantidade registrada de comentários,inteiro,OFICIAL,Tratar como fotografia no momento da coleta
+noticias_instagram_mare.csv,interacoes,Soma de curtidas e comentários,inteiro,DERIVADO,Não interpretar como alcance ou impacto
+noticias_instagram_mare.csv,hashtags,Hashtags identificadas na legenda,texto,OFICIAL,Pode estar vazio quando não houver hashtag
+noticias_instagram_mare.csv,link,Endereço da publicação original,texto,OFICIAL,Pode estar ausente na base recebida
+noticias_instagram_mare.csv,fonte,Canal institucional de origem,texto,OFICIAL,Manter a identificação do canal
+noticias_instagram_mare.csv,tipo_dado,Classificação de proveniência do registro,texto,DERIVADO,Manter como oficial para métricas coletadas
+bases_pesquisas.csv,base_id,Chave da origem do resultado; não é identificador de respondente.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,periodo,Período de coleta ou referência da pesquisa.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,universo,Conjunto de pessoas ou estabelecimentos efetivamente observado.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,limite,"Restrição de interpretação, denominador e representatividade.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,grupo,Bloco temático usado nos filtros.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,serie,"Questão, escala ou distribuição conjunta de categorias comparáveis.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,valor,Valor publicado ou derivado conforme a referência.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,unidade,"Percentual, pontos, anos ou contagem.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,n_base,Denominador informado ou tamanho da base pertinente quando disponível.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,n_categoria,Frequência da categoria quando a fonte fornece contagem ou permite calculá-la.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,referencia,Página da publicação ou campo da planilha verificado.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,referencia,"Data estatística, edição ou data de atualização da página, conforme identificada.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,situacao,"Incorporação, manutenção, referência ou extração municipal pendente.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,consulta,Data em que a fonte foi consultada.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+qualidade_instagram.csv,linhas_sem_publicacao,Linhas excluídas por não conterem dados de uma publicação válida.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+qualidade_instagram.csv,comentarios_reconstituidos,Diferenças válidas entre interações informadas e curtidas com comentário em branco.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,base_id,Chave da origem do resultado; não é identificador de respondente.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,periodo,Período de coleta ou referência da pesquisa.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,universo,Conjunto de pessoas ou estabelecimentos efetivamente observado.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+bases_pesquisas.csv,limite,"Restrição de interpretação, denominador e representatividade.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,grupo,Bloco temático usado nos filtros.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,serie,"Questão, escala ou distribuição conjunta de categorias comparáveis.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,valor,Valor publicado ou derivado conforme a referência.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,unidade,"Percentual, pontos, anos ou contagem.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,n_base,Denominador informado ou tamanho da base pertinente quando disponível.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,n_categoria,Frequência da categoria quando a fonte fornece contagem ou permite calculá-la.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+resultados_pesquisas.csv,referencia,Página da publicação ou campo da planilha verificado.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,referencia,"Data estatística, edição ou data de atualização da página, conforme identificada.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,situacao,"Incorporação, manutenção, referência ou extração municipal pendente.",texto ou número,METADADO,Interpretar junto à fonte e ao período.
+fontes_atualizadas.csv,consulta,Data em que a fonte foi consultada.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+qualidade_instagram.csv,linhas_sem_publicacao,Linhas excluídas por não conterem dados de uma publicação válida.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
+qualidade_instagram.csv,comentarios_reconstituidos,Diferenças válidas entre interações informadas e curtidas com comentário em branco.,texto ou número,METADADO,Interpretar junto à fonte e ao período.
