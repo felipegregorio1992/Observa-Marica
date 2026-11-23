@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import logoMare from '../assets/logo_mare.png'
 
@@ -16,10 +16,11 @@ export const SECOES = {
   governanca:       ['Governança e metodologia', 'Governança de Dados e Metodologia', 'Qualidade, atualização, documentação, rastreabilidade e uso da evidência', 'Dimensão 5', 'Capacidade institucional'],
 }
 
-function NavItem({ to, label }) {
+function NavItem({ to, label, onClick }) {
   return (
     <NavLink
       to={to}
+      onClick={onClick}
       className={({ isActive }) => isActive ? 'ativo' : undefined}
     >
       {label}
@@ -30,33 +31,45 @@ function NavItem({ to, label }) {
 export default function Layout() {
   const loc = useLocation()
   const inPesquisa = loc.pathname === '/nexus' || loc.pathname === '/natal'
+  const [aberto, setAberto] = useState(false)
+  const fechar = () => setAberto(false)
 
   return (
     <>
       <a href="#main" className="pular">Pular para o conteúdo</a>
       <header className="site-nav">
         <div className="nav-inner">
-          <NavLink to="/panorama" className="nome-site">
+          <NavLink to="/panorama" className="nome-site" onClick={fechar}>
             <img src={logoMare} alt="Logo MARÉ" className="nav-logo" />
             Observa Maricá
           </NavLink>
-            <nav className="nav-links" aria-label="Seções do observatório">
-            <NavItem to="/panorama" label={SECOES.panorama[0]} />
-            <NavItem to="/turismo" label={SECOES.turismo[0]} />
-            <NavItem to="/cultura" label={SECOES.cultura[0]} />
-            <NavItem to="/calendario" label={SECOES.calendario[0]} />
-            <NavItem to="/noticias" label={SECOES.noticias[0]} />
-            <NavItem to="/equipamentos" label={SECOES.equipamentos[0]} />
-            <NavItem to="/sustentabilidade" label={SECOES.sustentabilidade[0]} />
+
+          <button
+            className="nav-hamburger"
+            aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={aberto}
+            onClick={() => setAberto(o => !o)}
+          >
+            <span /><span /><span />
+          </button>
+
+          <nav className={`nav-links${aberto ? ' nav-links--aberto' : ''}`} aria-label="Seções do observatório">
+            <NavItem to="/panorama"         label={SECOES.panorama[0]}         onClick={fechar} />
+            <NavItem to="/turismo"          label={SECOES.turismo[0]}          onClick={fechar} />
+            <NavItem to="/cultura"          label={SECOES.cultura[0]}          onClick={fechar} />
+            <NavItem to="/calendario"       label={SECOES.calendario[0]}       onClick={fechar} />
+            <NavItem to="/noticias"         label={SECOES.noticias[0]}         onClick={fechar} />
+            <NavItem to="/equipamentos"     label={SECOES.equipamentos[0]}     onClick={fechar} />
+            <NavItem to="/sustentabilidade" label={SECOES.sustentabilidade[0]} onClick={fechar} />
             <details className="nav-submenu" open={inPesquisa}>
               <summary className={inPesquisa ? 'ativo' : undefined}>Pesquisas</summary>
               <div className="nav-submenu-links">
-                <NavItem to="/nexus" label={SECOES.nexus[0]} />
-                <NavItem to="/natal" label={SECOES.natal[0]} />
+                <NavItem to="/nexus" label={SECOES.nexus[0]} onClick={fechar} />
+                <NavItem to="/natal" label={SECOES.natal[0]} onClick={fechar} />
               </div>
             </details>
-            <NavItem to="/fontes" label={SECOES.fontes[0]} />
-            <NavItem to="/governanca" label={SECOES.governanca[0]} />
+            <NavItem to="/fontes"     label={SECOES.fontes[0]}     onClick={fechar} />
+            <NavItem to="/governanca" label={SECOES.governanca[0]} onClick={fechar} />
           </nav>
         </div>
       </header>
