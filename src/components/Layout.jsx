@@ -40,8 +40,7 @@ export default function Layout() {
       <header className="site-nav">
         <div className="nav-inner">
           <NavLink to="/panorama" className="nome-site" onClick={fechar}>
-            <img src={logoMare} alt="Logo MARÉ" className="nav-logo" />
-            Observa Maricá
+            <img src={logoMare} alt="Observa Maricá" className="nav-logo" />
           </NavLink>
 
           <button

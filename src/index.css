@@ -135,7 +135,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 
 .nav-logo {
-    height: 130px;
+    height: 80px;
     width: auto;
     object-fit: contain;
 }
@@ -170,7 +170,7 @@ a:hover { text-decoration-thickness: 2px; }
     text-decoration: none;
     border-radius: 6px;
     font-weight: 650;
-    font-size: 12px;
+    font-size: 16px;
 }
 .nav-links a:hover, .nav-links summary:hover { background: #eef7f7; }
 .nav-links [aria-current="page"], .nav-links .ativo { background: #007984; color: #fff; }
@@ -313,9 +313,10 @@ a:hover { text-decoration-thickness: 2px; }
     .grade.tres, .grade.duas, .grade.dois-um { grid-template-columns: minmax(0, 1fr); }
     .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .wrap { padding: 12px 10px 24px; }
-    .nav-inner { padding: 8px 10px; flex-wrap: wrap; }
-    .nav-logo { height: 56px; }
-    .nav-hamburger { display: flex; }
+    .nav-inner { padding: 8px 10px; flex-wrap: wrap; align-items: center; }
+    .nome-site { flex: 1; min-width: 0; }
+    .nav-logo { height: 70px; }
+    .nav-hamburger { display: flex; flex-shrink: 0; }
     .nav-links {
         display: none;
         flex-direction: column;
