@@ -29,7 +29,7 @@ export default function Calendario() {
 
       <Painel titulo="Calendário de eventos 2026">
         <Tabela
-          linhas={dados.eventos}
+          linhas={dados.eventos.filter(e => e.situacao_data !== 'Adiado')}
           colunas={{
             registro_id: 'ID',
             numero_oficial: 'Nº',

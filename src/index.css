@@ -199,7 +199,7 @@ a:hover { text-decoration-thickness: 2px; }
 .marca-simbolo { flex: 0 0 51px; height: 51px; border-radius: 14px; }
 .marca-nome { font-size: 16px; }
 .marca-sub { max-width: 136px; }
-.metrics { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.metrics { grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); }
 .metric { padding: 29px 8px 12px; text-align: center; }
 .metric dt { font-weight: 650; min-height: 0; line-height: 1.25; }
 .metric dd { margin-left: 0; }

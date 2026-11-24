@@ -90,9 +90,9 @@ export default function Panorama() {
   const cartoes = [
     ['População estimada', popValor, 'IBGE · 1º/07/2026', 'OFICIAL'],
     ['Crescimento', crescimento, 'Censo · 2010–2022', 'DERIVADO'],
-    ['Eventos 2026', numero(dados.eventos.length), 'Calendário oficial de 2026', 'OFICIAL'],
+    ['Eventos 2026', numero(dados.eventos.filter(e => e.situacao_data !== 'Adiado').length), 'Calendário oficial de 2026', 'OFICIAL'],
     ['Equipamentos', numero(equip.length), 'Base MARÉ · abril de 2026', 'OFICIAL'],
-    ['Indicadores disponíveis', numero(matDisp), 'Matriz de 38 indicadores', 'DERIVADO'],
+    // ['Indicadores disponíveis', numero(matDisp), 'Matriz de 38 indicadores', 'DERIVADO'],
     ['Publicações', numero(dados.posts.length), 'Instagram oficial da MARÉ', 'INSTITUCIONAL'],
   ]
 
@@ -112,11 +112,11 @@ export default function Panorama() {
         <Painel
           titulo="Programação anual"
           subtitulo="Registros do Calendário Oficial de Eventos de 2026"
-          rodape="Programação cadastrada no DOM de 12/03/2026."
+          rodape="Calendário de eventos 2026 revisão 29/06/2026."
         >
-          <Grafico figura={colunas(eventosPorMes(dados.eventos))} rotulo="Eventos do calendário por mês" altura={274} />
+          <Grafico figura={colunas(eventosPorMes(dados.eventos.filter(e => e.situacao_data !== 'Adiado')))} rotulo="Eventos do calendário por mês" altura={274} />
         </Painel>
-        <Painel titulo="Notícias recentes da MARÉ" subtitulo="Publicações mais recentes na base do Instagram">
+        <Painel titulo="MARÉ no Instagram" subtitulo="Publicações mais recentes">
           {postsRecentes.map((p, i) => (
             <article key={i} className="news-row">
               <time className="news-date" dateTime={p.data}>{dataBr(p.data)}</time>
@@ -135,7 +135,7 @@ export default function Panorama() {
       <Painel
         titulo="Comunicação pública no canal oficial da MARÉ"
         subtitulo={`${numero(dados.posts.length)} publicações entre ${periodo[0]} e ${periodo[1]} · ${totalInteracoes} interações`}
-        rodape="Interações correspondem a curtidas e comentários registrados na base."
+        rodape="Interações correspondem a curtidas e comentários registrados no instagram."
       >
         <Grafico figura={comunicacao(dados.posts)} rotulo="Publicações e interações mensais no Instagram da MARÉ" altura={290} />
       </Painel>

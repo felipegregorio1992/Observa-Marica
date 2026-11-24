@@ -143,7 +143,7 @@ export default function Noticias() {
         />
       </Painel>
 
-      {qualidade.publicacoes && (
+      {/* {qualidade.publicacoes && (
         <details className="conferencia">
           <summary>Conferência da base · {qualidade.arquivo}</summary>
           <p className="small-note">
@@ -156,7 +156,7 @@ export default function Noticias() {
             {numero(qualidade.divergencias)} divergências recalculadas.
           </p>
         </details>
-      )}
+      )} */}
     </>
   )
 }
