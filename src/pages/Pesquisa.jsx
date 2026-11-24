@@ -106,15 +106,7 @@ export default function Pesquisa({ secao }) {
         />
       </Painel>
 
-      <Painel titulo="Tabela e download" subtitulo="O CSV inclui fonte, período, universo, base da pergunta e referência.">
-        <DownloadCsv
-          dados={linhas}
-          nomeArquivo={`observa_marica_${rec.filtros.base}.csv`}
-          rotulo="Baixar dados selecionados"
-          colunas={['base_id','grupo','serie','categoria','valor','unidade','n_base','n_categoria','universo','periodo','fonte','referencia','nota','ordem']}
-          delimiter=";"
-          bom={true}
-        />
+      <Painel titulo="Tabela" subtitulo="O CSV inclui fonte, período, universo, base da pergunta e referência.">
         <Tabela
           linhas={tabela}
           colunas={{
@@ -130,6 +122,7 @@ export default function Pesquisa({ secao }) {
           }}
           rotulo="resultados"
           tamanho={12}
+          semDownload
         />
       </Painel>
     </>

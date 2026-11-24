@@ -27,7 +27,7 @@ function sortKey(chave, row) {
 // linhas: array of objects
 // colunas: { chave: 'Nome' }
 // filtros: string[] — column keys that show per-column filter inputs
-export default function Tabela({ linhas, colunas, rotulo, tamanho = 10, filtros = [] }) {
+export default function Tabela({ linhas, colunas, rotulo, tamanho = 10, filtros = [], semDownload = false }) {
   const chaves = Object.keys(colunas || {})
   const [busca, setBusca] = useState('')
   const [colFiltros, setColFiltros] = useState({})
@@ -90,7 +90,7 @@ export default function Tabela({ linhas, colunas, rotulo, tamanho = 10, filtros 
             placeholder={`Buscar em ${rotulo || 'tabela'}…`}
           />
         </label>
-        <DownloadCsv dados={filtradas} nomeArquivo={`${rotulo || 'dados'}.csv`} rotulo="Baixar CSV" />
+        {!semDownload && <DownloadCsv dados={filtradas} nomeArquivo={`${rotulo || 'dados'}.csv`} rotulo="Baixar CSV" />}
       </div>
       <div className="tabela-rolagem">
         <table>

@@ -10,7 +10,7 @@ export const SECOES = {
   noticias:         ['Instagram MARÉ', 'Comunicação Pública da MARÉ', 'Publicações do Instagram por período, formato e tema', 'Fonte institucional', 'Base da MARÉ'],
   equipamentos:     ['Equipamentos e território', 'Equipamentos Culturais e Turísticos', 'Situação, previsão, categoria e distribuição territorial', 'Atualização institucional', 'Abril de 2026'],
   sustentabilidade: ['Sustentabilidade e inclusão', 'Sustentabilidade, Inclusão e Bem-Estar', 'Acessibilidade, resíduos, bem-estar e pressão territorial', 'Dimensão 4', 'Indicadores a implantar'],
-  nexus:            ['Pesquisa Nexus', 'Pesquisa Nexus com turistas', 'Perfil, avaliação, atrativos e intenção de retorno', 'Maricá · maio de 2026', 'Pesquisas de campo'],
+  nexus:            ['Turistas', 'Pesquisa Nexus com turistas', 'Perfil, avaliação, atrativos e intenção de retorno', 'Maricá · maio de 2026', 'Pesquisas de campo'],
   natal:            ['Natal Brasilidade', 'Natal Brasilidade 2025', 'Experiência do público e percepções do comércio', 'Instituto Darcy Ribeiro', 'Pesquisas de campo'],
   fontes:           ['Fontes e atualizações', 'Fontes e atualizações', 'Indicadores territoriais, comunicados e referências', 'Consulta em 20/11/2026', 'Rastreabilidade'],
   governanca:       ['Governança e metodologia', 'Governança de Dados e Metodologia', 'Qualidade, atualização, documentação, rastreabilidade e uso da evidência', 'Dimensão 5', 'Capacidade institucional'],
@@ -54,7 +54,6 @@ export default function Layout() {
 
           <nav className={`nav-links${aberto ? ' nav-links--aberto' : ''}`} aria-label="Seções do observatório">
             <NavItem to="/panorama"         label={SECOES.panorama[0]}         onClick={fechar} />
-            <NavItem to="/turismo"          label={SECOES.turismo[0]}          onClick={fechar} />
             <NavItem to="/cultura"          label={SECOES.cultura[0]}          onClick={fechar} />
             <NavItem to="/calendario"       label={SECOES.calendario[0]}       onClick={fechar} />
             <NavItem to="/noticias"         label={SECOES.noticias[0]}         onClick={fechar} />

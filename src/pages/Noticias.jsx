@@ -126,20 +126,13 @@ export default function Noticias() {
         titulo="Base de notícias e comunicação pública"
         rodape="Fonte institucional: canal oficial da MARÉ no Instagram. A data é a da publicação."
       >
-        <DownloadCsv
-          dados={linhas}
-          nomeArquivo="observa_marica_instagram_filtrado.csv"
-          rotulo="Baixar publicações filtradas"
-          colunas={COLUNAS_EXPORT}
-          delimiter=";"
-          bom={true}
-        />
         <Tabela
           linhas={linhas}
           colunas={{ data:'Data', tipo:'Formato', tema:'Tema', titulo:'Publicação', curtidas:'Curtidas', comentarios:'Comentários', interacoes:'Interações', hashtags:'Hashtags', link:'Link' }}
           rotulo="publicações"
           tamanho={15}
           filtros={['tipo', 'tema', 'titulo', 'hashtags']}
+          semDownload
         />
       </Painel>
 

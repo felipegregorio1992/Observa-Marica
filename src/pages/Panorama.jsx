@@ -48,22 +48,40 @@ export default function Panorama() {
     if (!dados) return []
     const dest = (cat) => destaque(dados.pesquisas, 'nexus_relatorio', cat)
     return [
-      ['Entrevistas', dest('Tamanho da amostra'), 'Nexus · 2026', 'PESQUISA'],
+      ['Entrevistas', dest('Entrevistas'), 'Nexus · 2026', 'PESQUISA'],
       ['Destino positivo', dest('Avaliação positiva do destino'), 'Avaliação do destino', 'PESQUISA'],
       ['Infraestrutura positiva', dest('Avaliação positiva da infraestrutura'), 'Avaliação de infraestrutura', 'PESQUISA'],
       ['Retorno certo/provável', dest('Retorno certo ou provável'), 'Intenção de retorno', 'PESQUISA'],
-      ['NPS', dest('NPS publicado'), 'Net Promoter Score', 'PESQUISA'],
+      // ['NPS', dest('NPS publicado'), 'Net Promoter Score', 'PESQUISA'],
       ['Interesse em eventos', dest('Interesse em eventos'), 'Programação', 'PESQUISA'],
     ]
   }, [dados])
 
   const natal = useMemo(() => {
     if (!dados) return {}
-    return [
-      [destaque(dados.pesquisas, 'natal_publico',  'Entrevistas com frequentadores'), 'Entrevistas com frequentadores'],
-      [destaque(dados.pesquisas, 'natal_comercio', 'Empreendimentos consultados'),    'Empreendimentos consultados'],
-      [destaque(dados.pesquisas, 'natal_comercio', 'Faturamento menor'),              'Faturamento menor'],
-    ]
+    const dest = (base, cat) => destaque(dados.pesquisas, base, cat)
+    const destSC = (base, serie, cat) => {
+      const sel = dados.pesquisas.filter(l => l.base_id === base && l.serie === serie && l.categoria === cat)
+      if (sel.length !== 1) return '—'
+      const n = parseFloat(sel[0].valor)
+      if (!isFinite(n)) return '—'
+      const fmt = numero(n, Number.isInteger(n) ? 0 : 2)
+      return sel[0].unidade === '%' ? fmt + '%' : fmt
+    }
+    return {
+      publico: [
+        [dest('natal_publico',  'Entrevistas com frequentadores'),               'Entrevistas com frequentadores'],
+        [destSC('natal_publico',  'Visitantes de fora de Maricá', 'Araçatiba'),  'Visitantes · Araçatiba'],
+        [destSC('natal_publico',  'Avaliações positivas selecionadas', 'Segurança · Araçatiba'), 'Segurança ótima ou boa'],
+      ],
+      comercio: [
+        [dest('natal_comercio', 'Empreendimentos consultados'),                  'Empreendimentos consultados'],
+        [dest('natal_comercio', 'Faturamento menor'),                            'Faturamento menor'],
+        [destSC('natal_comercio', 'Avaliações selecionadas', 'Duração considerada adequada'), 'Duração adequada'],
+      ],
+      nPublico:  dest('natal_publico',  'Entrevistas com frequentadores'),
+      nComercio: dest('natal_comercio', 'Empreendimentos consultados'),
+    }
   }, [dados])
 
   const postsRecentes = useMemo(() => {
@@ -93,6 +111,7 @@ export default function Panorama() {
     ['Eventos 2026', numero(dados.eventos.filter(e => e.situacao_data !== 'Adiado').length), 'Calendário oficial de 2026', 'OFICIAL'],
     ['Equipamentos', numero(equip.length), 'Base MARÉ · abril de 2026', 'OFICIAL'],
     // ['Indicadores disponíveis', numero(matDisp), 'Matriz de 38 indicadores', 'DERIVADO'],
+    // ['Entrevistas Nexus', '304', 'Pesquisa com turistas · maio 2026', 'PESQUISA'],
     ['Publicações', numero(dados.posts.length), 'Instagram oficial da MARÉ', 'INSTITUCIONAL'],
   ]
 
@@ -142,40 +161,37 @@ export default function Panorama() {
 
       <div className="section-heading">
         <div>
-          <h2>Pesquisa Nexus · turistas 2026</h2>
-          <p>Relatório executivo · 23 a 27 de maio de 2026</p>
+          <h2>Turistas</h2>
+          <p>Pesquisa · 23 a 27 de maio de 2026</p>
         </div>
         <Link to="/nexus">Consultar pesquisa</Link>
       </div>
       <Cartoes itens={nexus} />
-      <p className="small-note">A consulta à Nexus identifica a origem dos resultados publicados e dos cálculos sem pesos da mesma rodada.</p>
 
-      <section className="section-snapshot">
+
+      <div className="section-heading">
         <div>
           <h2>Natal Brasilidade 2025</h2>
           <p>Pesquisas do IDR com público e comércio</p>
-          <Link to="/natal">Consultar pesquisas</Link>
         </div>
-        {natal.map(([valor, rotulo], i) => (
-          <div key={i} className="snapshot-value">
-            <strong>{valor}</strong>
-            <span>{rotulo}</span>
-          </div>
-        ))}
-      </section>
+        <Link to="/natal">Consultar pesquisas</Link>
+      </div>
+      <p className="small-note" style={{ marginBottom: 6 }}>Público geral · {natal.nPublico} entrevistas em 5 polos</p>
+      <Cartoes itens={natal.publico?.map(([valor, rotulo]) => [rotulo, valor, 'Instituto Darcy Ribeiro', 'PESQUISA']) ?? []} />
+      <p className="small-note" style={{ margin: '10px 0 6px' }}>Comércio · {natal.nComercio} empreendimentos entrevistados</p>
+      <Cartoes itens={natal.comercio?.map(([valor, rotulo]) => [rotulo, valor, 'Instituto Darcy Ribeiro', 'PESQUISA']) ?? []} />
 
-      <div className="grade duas">
-        <Painel titulo="Equipamentos por situação" subtitulo="Cadastro da MARÉ de abril de 2026">
+      <Painel titulo="Equipamentos por situação" subtitulo="Cadastro da MARÉ de abril de 2026">
           <Grafico figura={barras(contagens(equip, 'status_grupo'), SITUACOES)} rotulo="Equipamentos por situação" />
         </Painel>
-        <Painel titulo="Maturidade da matriz" subtitulo="38 indicadores em 11 eixos">
-          <Grafico figura={maturidade(dados.matriz)} rotulo="Indicadores disponíveis, parciais e a produzir" />
-        </Painel>
-      </div>
 
-      <Painel titulo="Qualidade das bases" subtitulo="Completude dos campos selecionados para o protótipo">
+      {/* <Painel titulo="Maturidade da matriz" subtitulo="38 indicadores em 11 eixos">
+          <Grafico figura={maturidade(dados.matriz)} rotulo="Indicadores disponíveis, parciais e a produzir" />
+        </Painel> */}
+
+      {/* <Painel titulo="Qualidade das bases" subtitulo="Completude dos campos selecionados para o protótipo">
         <Grafico figura={barras(completudeCalc, AZUL, true)} rotulo="Completude das quatro bases prioritárias" altura={260} />
-      </Painel>
+      </Painel> */}
     </>
   )
 }
