@@ -74,10 +74,18 @@ export default function Panorama() {
         [destSC('natal_publico',  'Visitantes de fora de Maricá', 'Araçatiba'),  'Visitantes · Araçatiba'],
         [destSC('natal_publico',  'Avaliações positivas selecionadas', 'Segurança · Araçatiba'), 'Segurança ótima ou boa'],
       ],
+      publicoExtra: [
+        ['57,7%', 'Gasto no dia do evento', '2.382 de 4.130 entrevistas nos cinco polos'],
+        ['47,2%', 'Pernoite em Maricá', '553 de 1.172 visitantes de fora com informação de permanência'],
+        ['74,7%', 'Atrações culturais · Parque Nanci', 'Ótimas ou boas · 1.787 entrevistados'],
+        ['92,3%', 'Atrações infantis · Parque Nanci', 'Ótimas ou boas · 1.787 entrevistados'],
+        ['95,7%', 'Segurança no evento · Araçatiba', 'Ótima ou boa · 610 entrevistados'],
+      ],
       comercio: [
-        [dest('natal_comercio', 'Empreendimentos consultados'),                  'Empreendimentos consultados'],
-        [dest('natal_comercio', 'Faturamento menor'),                            'Faturamento menor'],
-        [destSC('natal_comercio', 'Avaliações selecionadas', 'Duração considerada adequada'), 'Duração adequada'],
+        ['55,4%', 'Influência das atrações culturais', 'Positiva ou muito positiva · 51 de 92'],
+        ['29,7%', 'Contratação de pessoal extra', '27 de 91'],
+        ['22,5%', 'Faturamento acima do habitual', '20 de 89'],
+        ['84,1%', 'Recomendação do investimento', '74 de 88'],
       ],
       nPublico:  dest('natal_publico',  'Entrevistas com frequentadores'),
       nComercio: dest('natal_comercio', 'Empreendimentos consultados'),
@@ -161,25 +169,17 @@ export default function Panorama() {
 
       <div className="section-heading">
         <div>
-          <h2>Turistas</h2>
-          <p>Pesquisa · 23 a 27 de maio de 2026</p>
-        </div>
-        <Link to="/nexus">Consultar pesquisa</Link>
-      </div>
-      <Cartoes itens={nexus} />
-
-
-      <div className="section-heading">
-        <div>
           <h2>Natal Brasilidade 2025</h2>
           <p>Pesquisas do IDR com público e comércio</p>
         </div>
         <Link to="/natal">Consultar pesquisas</Link>
       </div>
-      <p className="small-note" style={{ marginBottom: 6 }}>Público geral · {natal.nPublico} entrevistas em 5 polos</p>
-      <Cartoes itens={natal.publico?.map(([valor, rotulo]) => [rotulo, valor, 'Instituto Darcy Ribeiro', 'PESQUISA']) ?? []} />
-      <p className="small-note" style={{ margin: '10px 0 6px' }}>Comércio · {natal.nComercio} empreendimentos entrevistados</p>
-      <Cartoes itens={natal.comercio?.map(([valor, rotulo]) => [rotulo, valor, 'Instituto Darcy Ribeiro', 'PESQUISA']) ?? []} />
+      <h3 style={{ margin: '0 0 6px' }}>Turistas</h3>
+      <p className="small-note" style={{ marginBottom: 6 }}>{natal.nPublico} entrevistas em 5 polos</p>
+      <Cartoes itens={natal.publicoExtra?.map(([valor, rotulo, base]) => [rotulo, valor, base, 'PESQUISA']) ?? []} />
+      <h3 style={{ margin: '14px 0 6px' }}>Empresas</h3>
+      <p className="small-note" style={{ marginBottom: 6 }}>{natal.nComercio} empreendimentos entrevistados</p>
+      <Cartoes className="quatro" itens={natal.comercio?.map(([valor, rotulo, base]) => [rotulo, valor, base, 'PESQUISA']) ?? []} />
 
       <Painel titulo="Equipamentos por situação" subtitulo="Cadastro da MARÉ de abril de 2026">
           <Grafico figura={barras(contagens(equip, 'status_grupo'), SITUACOES)} rotulo="Equipamentos por situação" />

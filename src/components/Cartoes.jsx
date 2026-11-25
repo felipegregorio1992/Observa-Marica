@@ -11,10 +11,10 @@ const CHIPS = {
 }
 
 // itens: Array<[titulo, valor, detalhe, classe]>
-export default function Cartoes({ itens }) {
+export default function Cartoes({ itens, className }) {
   if (!itens || itens.length === 0) return null
   return (
-    <dl className="metrics">
+    <dl className={className ? `metrics ${className}` : 'metrics'}>
       {itens.map(([titulo, valor, detalhe, classe], i) => (
         <div key={i} className="metric" style={{ '--accent': CORES[i % CORES.length] }}>
           {classe && <span className={`chip ${CHIPS[classe] || 'parcial'}`}>{classe}</span>}
