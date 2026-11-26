@@ -334,3 +334,110 @@ a:hover { text-decoration-thickness: 2px; }
     .panel { padding: 10px 11px; }
     .metric { min-height: 110px; }
 }
+
+/* ===== Cultura · economia e natal ===== */
+.economia-bloco {
+  display: grid;
+  grid-template-columns: 2fr auto 1.1fr auto 1.4fr auto 0.9fr;
+  align-items: start;
+  gap: 0;
+  background: #f4fafa;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.economia-grupo { padding: 0 14px; }
+.economia-grupo--centro { text-align: center; }
+.economia-sep {
+  width: 1px;
+  background: var(--borda);
+  align-self: stretch;
+  margin: 4px 0;
+}
+.economia-sep--v { display: none; }
+.economia-label  { font-size: 13px; font-weight: 750; color: var(--azul); margin: 0 0 4px; }
+.economia-valor-grande {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 850;
+  color: var(--ciano);
+  line-height: 1.1;
+  margin: 0 0 2px;
+}
+.ec-num { color: var(--azul2) !important; }
+.economia-valor-medio {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 850;
+  color: var(--azul2);
+  line-height: 1.1;
+  margin: 0 0 2px;
+}
+.economia-desc  { font-size: 12px; color: var(--cinza); margin: 0 0 4px; }
+.economia-fonte { font-size: 10px; color: var(--cinza); margin: 4px 0 0; }
+.economia-barras-legenda { display: flex; gap: 10px; flex-wrap: wrap; margin: 4px 0; }
+.leg-item   { font-size: 11px; }
+.leg-direta  { color: var(--ciano); }
+.leg-indireta{ color: var(--magenta); }
+
+/* Natal Brasilidade stats */
+.natal-secao {
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.natal-titulo  { font-size: 15px; font-weight: 750; color: var(--azul); margin: 0 0 8px; }
+.natal-sublabel{ font-size: 11px; color: var(--cinza); font-weight: 650; margin: 0; }
+.natal-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.natal-label-col { flex: 1; }
+.natal-label-col--dir { text-align: right; flex: 0 0 auto; padding-right: 20px; }
+.natal-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 1.1fr;
+  gap: 10px;
+  border-top: 2px solid var(--borda);
+  padding-top: 10px;
+}
+.natal-stat { padding: 8px 10px; border-radius: 10px; background: #fafcfc; }
+.natal-stat--publico {
+  border-left: 2px solid var(--ciano);
+  background: #f0fafb;
+}
+.natal-pct { font-size: clamp(22px, 2.5vw, 28px); font-weight: 850; line-height: 1; margin: 0 0 4px; }
+.natal-rosa  { color: var(--magenta); }
+.natal-ciano { color: #007984; }
+.natal-desc  { font-size: 12px; color: var(--azul); margin: 0 0 4px; line-height: 1.3; }
+.natal-base  { font-size: 10px; color: var(--cinza); margin: 0; }
+.natal-fonte { font-size: 10px; color: var(--cinza); margin: 10px 0 0; padding-top: 8px; border-top: 1px solid var(--borda); }
+
+/* Visitantes */
+.visitantes-bloco {
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+.visitantes-titulo { font-size: 14px; font-weight: 750; color: var(--azul); margin: 0 0 2px; }
+.visitantes-conteudo {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+.visitantes-grafico { min-width: 0; }
+.visitantes-cabec { margin-bottom: 4px; }
+
+@media (max-width: 1100px) {
+  .economia-bloco {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .economia-sep { display: none; }
+  .natal-stats { grid-template-columns: repeat(2, 1fr); }
+  .natal-stat--publico { border-left: none; border-top: 2px solid var(--ciano); }
+}
+@media (max-width: 700px) {
+  .economia-bloco { grid-template-columns: 1fr; }
+  .natal-stats { grid-template-columns: 1fr 1fr; }
+  .visitantes-conteudo { grid-template-columns: 1fr; }
+}

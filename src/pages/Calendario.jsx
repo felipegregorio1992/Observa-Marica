@@ -19,17 +19,13 @@ export default function Calendario() {
     <>
       <Hero pagina={SECOES.calendario} />
 
-      <div className="note method">
-        O número 53 aparece em dois registros distintos porque o Diário Oficial original atribuiu o mesmo número a dois eventos diferentes. O campo <code>registro_id</code> técnico os distingue.
-      </div>
-
       <Painel titulo="Comunicados oficiais">
         <Comunicados itens={dados.comunicados} />
       </Painel>
 
       <Painel titulo="Calendário de eventos 2026">
         <Tabela
-          linhas={dados.eventos.filter(e => e.situacao_data !== 'Adiado')}
+          linhas={dados.eventos.filter(e => e.situacao_data !== 'Adiado' && e.situacao_data !== 'Cancelado')}
           colunas={{
             registro_id: 'ID',
             numero_oficial: 'Nº',
@@ -45,6 +41,7 @@ export default function Calendario() {
           rotulo="eventos"
           tamanho={20}
           filtros={['numero_oficial', 'mes_nome', 'tema_mes', 'evento', 'secretaria_responsavel', 'participacao_mare', 'situacao_data']}
+          semDownload
         />
       </Painel>
     </>

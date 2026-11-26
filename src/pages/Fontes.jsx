@@ -55,11 +55,12 @@ export default function Fontes() {
             observacao: 'Nota',
           }}
           rotulo="indicadores territoriais"
+          semDownload
         />
       </Painel>
 
-      <Painel titulo="Fontes do TCC e portais oficiais">
-        <DownloadCsv dados={dados.fontes} nomeArquivo="fontes.csv" rotulo="Baixar registro da consulta" />
+      <Painel titulo="Fontes Oficiais de Consulta">
+        
         <details open className="lista-fontes">
           <summary>Consultar fontes</summary>
           <div className="sources-grid">

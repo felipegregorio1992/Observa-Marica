@@ -116,7 +116,7 @@ export default function Panorama() {
   const cartoes = [
     ['População estimada', popValor, 'IBGE · 1º/07/2026', 'OFICIAL'],
     ['Crescimento', crescimento, 'Censo · 2010–2022', 'DERIVADO'],
-    ['Eventos 2026', numero(dados.eventos.filter(e => e.situacao_data !== 'Adiado').length), 'Calendário oficial de 2026', 'OFICIAL'],
+    ['Eventos 2026', numero(dados.eventos.filter(e => e.situacao_data !== 'Adiado' && e.situacao_data !== 'Cancelado').length), 'Calendário oficial de 2026', 'OFICIAL'],
     ['Equipamentos', numero(equip.length), 'Base MARÉ · abril de 2026', 'OFICIAL'],
     // ['Indicadores disponíveis', numero(matDisp), 'Matriz de 38 indicadores', 'DERIVADO'],
     // ['Entrevistas Nexus', '304', 'Pesquisa com turistas · maio 2026', 'PESQUISA'],
@@ -141,7 +141,7 @@ export default function Panorama() {
           subtitulo="Registros do Calendário Oficial de Eventos de 2026"
           rodape="Calendário de eventos 2026 revisão 29/06/2026."
         >
-          <Grafico figura={colunas(eventosPorMes(dados.eventos.filter(e => e.situacao_data !== 'Adiado')))} rotulo="Eventos do calendário por mês" altura={274} />
+          <Grafico figura={colunas(eventosPorMes(dados.eventos.filter(e => e.situacao_data !== 'Adiado' && e.situacao_data !== 'Cancelado')))} rotulo="Eventos do calendário por mês" altura={274} />
         </Painel>
         <Painel titulo="MARÉ no Instagram" subtitulo="Publicações mais recentes">
           {postsRecentes.map((p, i) => (

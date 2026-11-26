@@ -5,7 +5,7 @@ import logoMare from '../assets/logo_mare.png'
 export const SECOES = {
   panorama:         ['Panorama', 'Observatório Municipal de Cultura e Turismo', 'Informação integrada para políticas públicas', 'Maricá · RJ', 'Atualização de 24/11/2026'],
   turismo:          ['Turismo e economia', 'Demanda Turística, Economia e Oferta', 'Indicadores de visitantes, permanência, oferta e efeitos econômicos', 'Dimensões 1 e 2', 'Matriz do TCC'],
-  cultura:          ['Cultura e Economia', 'Cultura e Economia', 'Programação, participação, território, agentes e investimento cultural', 'Dimensão 3', 'Matriz do TCC'],
+  cultura:          ['Cultura e Economia', 'Cultura e Economia', 'Impacto da Cultura na Economia', 'Dimensão 3', 'Matriz do TCC'],
   calendario:       ['Calendário de eventos', 'Calendário Oficial de Eventos 2026', 'Agenda anual, datas e responsáveis', 'Diário Oficial de Maricá', 'Edição de 12/03/2026'],
   noticias:         ['Instagram MARÉ', 'Comunicação Pública da MARÉ', 'Publicações do Instagram por período, formato e tema', 'Fonte institucional', 'Base da MARÉ'],
   equipamentos:     ['Equipamentos e território', 'Equipamentos Culturais e Turísticos', 'Situação, previsão, categoria e distribuição territorial', 'Atualização institucional', 'Abril de 2026'],
